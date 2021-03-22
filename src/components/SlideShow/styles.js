@@ -31,19 +31,9 @@ export const ArrowLeft = styled.div`
   left: 0;
 `;
 
-export const ArrowRight = styled.div`
-  position: absolute;
+export const ArrowRight = styled(ArrowLeft)`
   right: 0;
-  width: 40px;
-  height: 225px;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  cursor: pointer;
-  opacity: 0;
+  left: auto;
   &:hover{
      opacity: 1;
     }

@@ -53,7 +53,7 @@ const Dashboard = () => {
       <Header scroll={userIsScroll} />
       {featuedData && <Featured movie={featuedData} />}
 
-      <Lists className="lists">
+      <Lists>
         {movies.map((movie, key) => (
           <SlideShow key={key} title={movie.title} items={movie.items} />
         ))}

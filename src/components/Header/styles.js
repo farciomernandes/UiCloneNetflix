@@ -17,13 +17,12 @@ export const Head = styled.header`
 `;
 
 export const HeaderLeft = styled.div`
-    height: 35px;
     img{
-      height: 8vh;
+      height: 5vh;
     }
 `;
 
-export const HeaderRigth = styled.div`
+export const HeaderRigth = styled(HeaderLeft)`
       height: 40px;
       img{
         height: 100%;

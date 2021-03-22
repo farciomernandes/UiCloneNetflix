@@ -45,7 +45,9 @@ const Featured = ({ movie }) => {
           <Description>{movie.overview}</Description>
           <Buttons>
             <BtnPlay href={`/watch/${movie.id}`}>► Assistir</BtnPlay>
-            <BtnMyList href={`/list/add/${movie.id}`}>+ Minha Lista</BtnMyList>
+            <BtnMyList primary href={`/list/add/${movie.id}`}>
+              + Minha Lista
+            </BtnMyList>
           </Buttons>
           <Genres>
             <strong>Gêneros: </strong>
