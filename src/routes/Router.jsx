@@ -6,8 +6,6 @@ import { useAuth } from "../context/AuthContext";
 
 const Router = ({ isPrivate = false, component: Component, ...rest }) => {
   const { user } = useAuth();
-  console.log("USER DO PAI: ", user);
-
   return (
     <Route
       {...rest}

@@ -37,15 +37,14 @@ const AuthProvider = ({ children }) => {
       setLogedUser(user);
     } catch (err) {
       console.log(err);
-      window.alert("Incorrect username or password!");
+      window.alert("Senha ou email incorretos!");
     }
   }, []);
-
   return (
     <AuthContext.Provider
       value={{
         signin,
-        user: logedUser.uid,
+        user: logedUser.user,
         login,
         setLogedUser,
       }}
