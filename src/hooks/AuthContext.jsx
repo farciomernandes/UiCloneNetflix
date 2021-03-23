@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import React, { createContext, useCallback, useState, useContext } from "react";
 import UserService from "../services/UserServices";
 
