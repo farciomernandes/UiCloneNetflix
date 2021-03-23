@@ -24,33 +24,36 @@ const SignIn = () => {
 
   const history = useHistory();
 
-  const handleSubmit = useCallback(async (data) => {
-    try {
-      formRef.current.setErrors({});
+  const handleSubmit = useCallback(
+    async (data) => {
+      try {
+        formRef.current.setErrors({});
 
-      const schema = Yup.object().shape({
-        email: Yup.string().email().required("Informe um email válido."),
-        password: Yup.string()
-          .min(6)
-          .required("A senha deve ter entre 4 a 60 caracteres"),
-      });
-      await schema.validate(data, {
-        abortEarly: false,
-      });
+        const schema = Yup.object().shape({
+          email: Yup.string().email().required("Informe um email válido."),
+          password: Yup.string()
+            .min(6)
+            .required("A senha deve ter entre 4 a 60 caracteres"),
+        });
+        await schema.validate(data, {
+          abortEarly: false,
+        });
 
-      await login({
-        email: data.email,
-        password: data.password,
-      });
+        await login({
+          email: data.email,
+          password: data.password,
+        });
 
-      history.push("/dashboard");
-    } catch (err) {
-      if (err instanceof Yup.ValidationError) {
-        const errors = GetErros(err);
-        formRef.current.setErrors(errors);
+        history.push("/dashboard");
+      } catch (err) {
+        if (err instanceof Yup.ValidationError) {
+          const errors = GetErros(err);
+          formRef.current.setErrors(errors);
+        }
       }
-    }
-  }, []);
+    },
+    [history, login]
+  );
   return (
     <Container>
       <Header />

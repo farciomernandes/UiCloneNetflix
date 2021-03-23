@@ -17,7 +17,7 @@ const Header = ({ scroll }) => {
     await UserService.logout();
     localStorage.removeItem("@Marcioflix:user");
     setLogedUser({});
-  }, []);
+  }, [setLogedUser]);
 
   return (
     <Head isBlack={scroll}>
