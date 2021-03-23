@@ -84,6 +84,7 @@ export const Bottom = styled.section`
   background-color: rgba(0, 0, 0, 0.7);
   height: 100px;
   width: 100%;
-  margin-top: 20px;
+  position: relative;
+  top: 6em;
+  padding-bottom: 1em;
 `;
-
