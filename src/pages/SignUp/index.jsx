@@ -27,7 +27,7 @@ const SignUp = () => {
         formRef.current.setErrors({});
 
         const schema = Yup.object().shape({
-          email: Yup.string().required("Informe um email válido."),
+          email: Yup.email().string().required("Informe um email válido."),
           password: Yup.string()
             .min(6)
             .required("Sua senha deve ter entre 4 a 60 caracteres"),
