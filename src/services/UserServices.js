@@ -14,12 +14,11 @@ class User{
   }
 
   static async authentication(email, password){
-    console.log(email, password);
 
-    return await Firebase.auth().signInWithEmailAndPassword("boi@gmail.com", "macaco123").then(response => {
+ return await Firebase.auth().signInWithEmailAndPassword(email, password).then(response => {
       return response.user
-    }).catch(err => {
-      throw new Error("Deu ruim ao autenticar!")
+    }).catch( err => {
+      throw new AuthenticError('Error in authentication', err)
     })
   }
 

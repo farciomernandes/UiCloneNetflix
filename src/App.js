@@ -5,7 +5,7 @@ import Routes from "./routes/index";
 
 import GlobalStyles from './GlobalStyles';
 
-import {AuthProvider} from './context/AuthContext';
+import {AuthProvider} from './hooks/AuthContext';
 
 
 

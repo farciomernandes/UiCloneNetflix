@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import getMovies from "../../services/GetMovies";
 import getDetails from "../../services/GetDetaisMovies";
-import { useAuth } from "../../context/AuthContext";
 
 import SlideShow from "../../components/SlideShow";
 import Featured from "../../components/FeaturedMovie";

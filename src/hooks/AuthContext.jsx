@@ -28,13 +28,13 @@ const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const login = useCallback(async (email, password) => {
+  const login = useCallback(async ({ email, password }) => {
     try {
       await UserService.authentication(email, password);
       const user = Firebase.auth().currentUser;
 
       localStorage.setItem("@Marcioflix:user", JSON.stringify(user));
-      setLogedUser(user);
+      setLogedUser({ user });
     } catch (err) {
       console.log(err);
       window.alert("Senha ou email incorretos!");

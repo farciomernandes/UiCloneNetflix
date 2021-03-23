@@ -7,7 +7,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import * as Yup from "yup";
 
 import GetErros from "../../utils/GetErros";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../hooks/AuthContext";
 
 import { Container, Card, Options, Bottom } from "./styles";
 

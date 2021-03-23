@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
 
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../hooks/AuthContext";
 
 import UserService from "../../services/UserServices";
 
@@ -11,7 +11,7 @@ import MarcioFlix from "../../assets/MARCIOFLIX.png";
 import { HeaderLeft, Head, HeaderRigth } from "./styles";
 
 const Header = ({ scroll }) => {
-  const { setLogedUser } = useAuth();
+  const { setLogedUser, user } = useAuth();
 
   const handleLogout = useCallback(async () => {
     await UserService.logout();
@@ -28,7 +28,7 @@ const Header = ({ scroll }) => {
       </HeaderLeft>
       <HeaderRigth>
         <Link to="/">
-          <PowerSettingsNewIcon onClick={() => handleLogout()} />
+          {user && <PowerSettingsNewIcon onClick={() => handleLogout()} />}
         </Link>
       </HeaderRigth>
     </Head>

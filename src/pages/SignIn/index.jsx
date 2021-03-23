@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-console */
 import React, { useCallback, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Form } from "@unform/web";
 import * as Yup from "yup";
 
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../hooks/AuthContext";
 import GetErros from "../../utils/GetErros";
 
 import { Container, Card, Options, Bottom, Background } from "./styles";
@@ -21,6 +21,7 @@ const SignIn = () => {
   const formRef = useRef(null);
 
   const { login } = useAuth();
+  const history = useHistory();
 
   const handleSubmit = useCallback(async (data) => {
     try {
@@ -40,6 +41,8 @@ const SignIn = () => {
         email: data.email,
         password: data.password,
       });
+      window.alert("Bem vindo!");
+      history.push("/dashboard");
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
         const errors = GetErros(err);
