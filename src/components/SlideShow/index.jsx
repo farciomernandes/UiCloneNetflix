@@ -1,6 +1,6 @@
 /* eslint-disable no-const-assign */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
@@ -15,12 +15,6 @@ import {
 
 const SlideShow = ({ title, items }) => {
   const [scroll, setScroll] = useState(-400);
-
-  useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log(items);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const scrollToRight = () => {
     let x = scroll - Math.round(window.innerWidth / 2);

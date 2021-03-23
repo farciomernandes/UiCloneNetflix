@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { Link } from "react-router-dom";
+
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
+import { useAuth } from "../../context/AuthContext";
+
+import UserService from "../../services/UserServices";
+
 import MarcioFlix from "../../assets/MARCIOFLIX.png";
-import userImg from "../../assets/user.jpg";
 
 import { HeaderLeft, Head, HeaderRigth } from "./styles";
 
 const Header = ({ scroll }) => {
+  const { setLogedUser } = useAuth();
+
+  const handleLogout = useCallback(async () => {
+    await UserService.logout();
+    localStorage.removeItem("@Marcioflix:user");
+    setLogedUser({});
+  }, []);
+
   return (
     <Head isBlack={scroll}>
       <HeaderLeft>
-        <a href="/">
+        <Link to="/">
           <img src={MarcioFlix} alt="Netflix" />
-        </a>
+        </Link>
       </HeaderLeft>
       <HeaderRigth>
-        <a href="/">
-          <img src={userImg} alt="Usuário" />
-        </a>
+        <Link to="/">
+          <PowerSettingsNewIcon onClick={() => handleLogout()} />
+        </Link>
       </HeaderRigth>
     </Head>
   );

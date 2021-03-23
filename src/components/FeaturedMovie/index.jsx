@@ -1,6 +1,3 @@
-/* eslint-disable prefer-const */
-/* eslint-disable guard-for-in */
-/* eslint-disable no-restricted-syntax */
 import React from "react";
 
 import {
@@ -20,7 +17,7 @@ import {
 } from "./styles";
 
 const Featured = ({ movie }) => {
-  let genres = [];
+  const genres = [];
   movie.genres.forEach((genre) => genres.push(genre.name));
 
   return (

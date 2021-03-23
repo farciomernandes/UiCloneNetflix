@@ -18,6 +18,11 @@ body{
 }
 a{
   text-decoration: none;
+  color: #FFF;
+}
+
+button{
+  cursor: pointer;
 }
 
 `;
