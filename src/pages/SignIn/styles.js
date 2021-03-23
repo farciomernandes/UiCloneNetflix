@@ -9,6 +9,9 @@ export const Container = styled.div`
   height: 100%;
   min-height: 100vh;
   width: 100%;
+  @media(max-width: 760px){
+    height: 120vh;
+  }
 `;
 export const Background = styled.img`
   position:absolute;
