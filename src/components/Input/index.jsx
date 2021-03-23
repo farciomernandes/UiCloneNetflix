@@ -21,7 +21,6 @@ const Input = ({ name, ...rest }) => {
     <Container isFocused={isFocused}>
       <input
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
         defaultValue={defaultValue}
         ref={inputRef}
         {...rest}

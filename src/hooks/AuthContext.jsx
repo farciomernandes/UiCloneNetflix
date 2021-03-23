@@ -56,9 +56,7 @@ const AuthProvider = ({ children }) => {
 
 function useAuth() {
   const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth mus be used whitin an AuthProvider");
-  }
+
   return context;
 }
 

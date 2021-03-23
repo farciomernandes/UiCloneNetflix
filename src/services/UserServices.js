@@ -18,7 +18,7 @@ class User{
  return await Firebase.auth().signInWithEmailAndPassword(email, password).then(response => {
       return response.user
     }).catch( err => {
-      throw new AuthenticError('Error in authentication', err)
+      throw new Error('Error in authentication', err)
     })
   }
 

@@ -19,7 +19,6 @@ const Dashboard = () => {
     const getAllMovies = async () => {
       const data = await getMovies.getAll();
       setMovies(data);
-
       const category = data.filter((movie) => movie.category === "originals");
       const randomMovie = Math.floor(
         Math.random() * category[0].items.results.length - 1
@@ -28,6 +27,7 @@ const Dashboard = () => {
       const movie = category[0].items.results[randomMovie];
       const movieInfo = await getDetails.getDetailsMovie(movie.id, "tv");
       setFeaturedData(movieInfo);
+      console.log(data);
     };
 
     getAllMovies();

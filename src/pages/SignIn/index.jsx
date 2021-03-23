@@ -21,6 +21,7 @@ const SignIn = () => {
   const formRef = useRef(null);
 
   const { login } = useAuth();
+
   const history = useHistory();
 
   const handleSubmit = useCallback(async (data) => {
@@ -41,7 +42,7 @@ const SignIn = () => {
         email: data.email,
         password: data.password,
       });
-      window.alert("Bem vindo!");
+
       history.push("/dashboard");
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
@@ -50,7 +51,6 @@ const SignIn = () => {
       }
     }
   }, []);
-
   return (
     <Container>
       <Header />
@@ -58,7 +58,7 @@ const SignIn = () => {
         <Background src={backgroundImg} alt="Netflix" />
 
         <Form onSubmit={handleSubmit} ref={formRef}>
-          <h1>Entrar</h1>
+          <h1>Login</h1>
           <Input name="email" type="text" placeholder="Email" />
           <Input name="password" type="password" placeholder="Senha" />
 

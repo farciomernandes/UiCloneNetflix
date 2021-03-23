@@ -1,4 +1,4 @@
-import {key, base_url, reqMovies} from '../config/api';
+import {key, reqMovies} from '../config/api';
 
 export default {
   getAll: async() =>{

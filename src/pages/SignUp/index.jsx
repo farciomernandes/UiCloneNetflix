@@ -37,7 +37,6 @@ const SignUp = () => {
         });
         const { email, password } = data;
         await signin(email, password);
-        window.alert("Cadastro realizado com sucesso!");
         history.push("/");
       } catch (err) {
         const errors = GetErros(err);
@@ -53,14 +52,10 @@ const SignUp = () => {
       <Card>
         <Form onSubmit={handleSubmit} ref={formRef}>
           <h1>Cadastro</h1>
-          <Input name="email" type="text" placeholder="Digite seu email" />
-          <Input
-            name="password"
-            type="password"
-            placeholder="Digite sua senha"
-          />
+          <Input name="email" type="text" placeholder="Email" />
+          <Input name="password" type="password" placeholder="Senha" />
 
-          <Button type="submit">Entrar</Button>
+          <Button type="submit">Cadastrar</Button>
           <Options>
             <section>
               <Link to="/">
