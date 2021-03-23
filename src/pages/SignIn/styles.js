@@ -9,9 +9,6 @@ export const Container = styled.div`
   height: 100%;
   min-height: 100vh;
   width: 100%;
-  @media(max-width: 760px){
-    height: 120vh;
-  }
 `;
 export const Background = styled.img`
   position:absolute;
@@ -87,6 +84,8 @@ export const Bottom = styled.section`
   background-color: rgba(0, 0, 0, 0.7);
   height: 100px;
   width: 100%;
-  margin-top: 20px;
+  position: relative;
+  top: 6em;
+  padding-bottom: 1em;
 `;
 
