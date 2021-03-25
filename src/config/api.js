@@ -7,4 +7,3 @@ export const reqMovies = async (url) =>{
     const results = await Axios.get(`${base_url}${url}`);
     return results.data;
 }
-

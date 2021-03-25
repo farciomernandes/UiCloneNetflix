@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
       const user = Firebase.auth().currentUser;
 
       localStorage.setItem("@Marcioflix:user", JSON.stringify(user));
-      setLogedUser(user);
+      setLogedUser({ user });
     } catch (err) {
       console.log(err);
     }
