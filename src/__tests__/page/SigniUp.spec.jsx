@@ -1,7 +1,9 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react";
 import SignUp from "../../pages/SignUp";
+import FakeUser from '../fakes/FakeUserService';
 
+const signin = FakeUser.create(email, password);
 const mockedHistoryPush = jest.fn();
 
 jest.mock("react-router-dom", () => {
@@ -16,7 +18,7 @@ jest.mock("react-router-dom", () => {
 jest.mock("../../hooks/AuthContext", () => {
   return {
     useAuth: () => ({
-      signup: jest.fn(),
+      signin
     }),
   };
 });
@@ -62,5 +64,23 @@ describe("SignUp Page", () => {
     await waitFor(() => {
       expect(mockedHistoryPush).not.toHaveBeenCalledWith();
     });
+  });
+
+  it("should not be able create account with exist credentials", async () => {
+
+    const user = {
+      email: 'teste@gmail.com',
+      password: '123456'
+    }
+
+    const numberUsers = FakeUser.totalUsers();
+
+    FakeUser.create(user);
+    FakeUser.create(user);
+
+    const newUsers = FakeUser.totalUsers();
+
+    expect(newUsers).toEqual((numberUsers + 1));
+
   });
 });

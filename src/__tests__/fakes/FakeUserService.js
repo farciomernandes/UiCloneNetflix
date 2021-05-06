@@ -3,6 +3,10 @@ let logged = {};
 
 class FakeUser{
 
+  static totalUsers(){
+    return users;
+  }
+
   static create(email, password){
     const user = {
         email,
@@ -10,6 +14,12 @@ class FakeUser{
         createdAt: new Date(),
         id: (Math.random() * Math.pow(10, 8)),
     };
+
+    const exist = users.find(check => check.email === user.email);
+    
+    if(exist){
+      return null;
+    }
 
     users.push(user);
     
