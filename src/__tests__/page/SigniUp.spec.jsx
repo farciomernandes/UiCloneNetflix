@@ -16,19 +16,19 @@ jest.mock("react-router-dom", () => {
 jest.mock("../../hooks/AuthContext", () => {
   return {
     useAuth: () => ({
-      signin: jest.fn(),
+      signup: jest.fn(),
     }),
   };
 });
 
 jest.mock("../../components/Header", () => "Header");
 
-describe("SignIn Page", () => {
+describe("SignUp Page", () => {
   beforeEach(() => {
     mockedHistoryPush.mockClear();
   });
 
-  it("should be able create account with credentials", async () => {
+  it("should be able create account with valid credentials", async () => {
     const { getByPlaceholderText, getByText } = render(<SignUp />);
 
     const emailField = getByPlaceholderText("Email");
@@ -42,7 +42,7 @@ describe("SignIn Page", () => {
     fireEvent.click(buttonElement);
 
     await waitFor(() => {
-      expect(mockedHistoryPush).toHaveBeenCalledWith("/");
+      expect(mockedHistoryPush).toHaveBeenCalledWith("/dashboard");
     });
   });
 
