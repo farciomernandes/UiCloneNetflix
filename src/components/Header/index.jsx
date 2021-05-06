@@ -28,7 +28,7 @@ const Header = ({ scroll }) => {
       </HeaderLeft>
       <HeaderRigth>
         <Link to="/">
-          {user && <PowerSettingsNewIcon onClick={() => handleLogout()} />}
+          {user && <PowerSettingsNewIcon data-testId="logout-button" onClick={() => handleLogout()} />}
         </Link>
       </HeaderRigth>
     </Head>

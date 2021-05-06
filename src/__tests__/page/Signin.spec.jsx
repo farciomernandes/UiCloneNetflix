@@ -21,12 +21,13 @@ jest.mock("../../hooks/AuthContext", () => {
   };
 });
 
-jest.mock("../../components/Header", () => "Header");
+jest.mock("../../components/Header", () => React.Component );
 
 describe("SignIn Page", () => {
   beforeEach(() => {
     mockedHistoryPush.mockClear();
   });
+
   it("should be able ti sign in", async () => {
     const { getByPlaceholderText, getByText } = render(<SignIn />);
 
