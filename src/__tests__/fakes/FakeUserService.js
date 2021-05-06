@@ -39,7 +39,6 @@ class FakeUser{
   }
 
   static async logout (){
-
     logged = {};
   }
 }
